@@ -77,3 +77,21 @@ a {
   color: black;
   font-weight: bold;
 }
+
+body > button {
+  margin: auto;
+  display: flex;
+}
+
+table {
+  margin: auto;
+}
+
+.shopping-values {
+  display: flex;
+  justify-content: center;
+}
+
+.shopping-values > * {
+  margin: 20px 20px;
+}
