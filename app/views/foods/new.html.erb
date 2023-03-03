@@ -1,0 +1,38 @@
+<h1>Add Foods Form</h1>
+
+<%= form_with model: @food, url: user_foods_path(params[:user_id]), method: :post, class: "form" do |form| %>
+  <h2 class="form_title">Add a Food</h2>
+  <section class="form-section">
+    <p class="input-text"><%= form.label :name %>:</p>
+    <%= form.text_field :name,
+    class: "text_input",
+    placeholder: "Write name of food..." %>
+  </section>
+
+  <section class="form-section">
+    <p class="number_field"><%= form.label :measurement_unit, "Measurement Unit" %>:</p>
+    <%= form.text_field :measurement_unit,
+    class: "text_input",
+    placeholder: "Write food meausuring unit..." %>
+  </section>
+
+  <section class="form-section">
+    <p class="number_field"><%= form.label :price %>:</p>
+    <%= form.number_field :price,
+    class: "number_field",
+    placeholder: "Price per Unit..." %>
+  </section>
+
+  <section class="form-section">
+    <p class="number_field"><%= form.label :quantity %>:</p>
+    <%= form.number_field :quantity,
+    class: "number_field",
+    placeholder: "Quantity of the Food..." %>
+  </section>
+
+
+
+  <section class="form-section">
+    <%= form.submit class: "submit_button" %>
+  </section>
+<% end %>

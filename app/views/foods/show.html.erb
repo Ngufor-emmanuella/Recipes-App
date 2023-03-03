@@ -1,0 +1,14 @@
+<h1>Food Show page</h1>
+<p> This is the food Show page </p>
+<%# details of the Food post %>
+<div>
+  <p>Food ID: <%= @food.id %></p>
+</div>
+<div>
+  <p>Food Measurement Unit: <%= @food.measurement_unit %></p>
+</div>
+<div>
+  <p>Food Price: <%= @food.price %></p>
+</div>
+
+<%= link_to "Back to List of Foods", foods_path(@foods) %>

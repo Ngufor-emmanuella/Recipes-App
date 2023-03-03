@@ -1,0 +1,11 @@
+<h1>Recipe Show page</h1>
+<p> This is the recipe Show page </p>
+<%# details of the Recipe post %>
+<div>
+  <p>Recipe ID: <%= @recipe.id %></p>
+</div>
+<div>
+  <p>Recipe Name: <%= @recipe.name %></p>
+</div>
+
+<%= link_to "Back to List of Recipes", recipes_path(@recipes) %>
