@@ -1,0 +1,20 @@
+<header>
+  <div class="header">
+    <div>
+      <a href="#" class="brand">Recipe App</a>
+    </div>
+    <div>
+      <nav class="nav">
+        <ul class="nav-wrapper">
+          <li><%= link_to "Food", user_foods_path(current_user) %> </li>
+          <li><%= link_to "Recipes", user_recipes_path(current_user) %> </li>
+          <li><%= link_to "Public recipes", public_recipes_path(current_user) %> </li>
+          <li><%= link_to "Shopping list", shoppings_path(current_user) %> </li>
+        </ul>
+      </nav>
+    </div>
+    <div>
+      <%= link_to "Sign out", destroy_user_session_path, {:class => "button-si"} %>
+    </div>
+  </div>
+</header>
