@@ -1,10 +1,11 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @recipe %>
-
+<h1>Recipe Show page</h1>
+<p> This is the recipe Show page </p>
+<%# details of the Recipe post %>
 <div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
-
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+  <p>Recipe ID: <%= @recipe.id %></p>
 </div>
+<div>
+  <p>Recipe Name: <%= @recipe.name %></p>
+</div>
+
+<%= link_to "Back to List of Recipes", recipes_path(@recipes) %>
