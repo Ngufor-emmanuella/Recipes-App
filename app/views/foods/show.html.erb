@@ -1,10 +1,14 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @food %>
-
+<h1>Food Show page</h1>
+<p> This is the food Show page </p>
+<%# details of the Food post %>
 <div>
-  <%= link_to "Edit this food", edit_food_path(@food) %> |
-  <%= link_to "Back to foods", foods_path %>
-
-  <%= button_to "Destroy this food", @food, method: :delete %>
+  <p>Food ID: <%= @food.id %></p>
 </div>
+<div>
+  <p>Food Measurement Unit: <%= @food.measurement_unit %></p>
+</div>
+<div>
+  <p>Food Price: <%= @food.price %></p>
+</div>
+
+<%= link_to "Back to List of Foods", foods_path(@foods) %>
