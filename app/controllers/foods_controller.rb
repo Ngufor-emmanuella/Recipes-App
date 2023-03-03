@@ -12,6 +12,10 @@ class FoodsController < ApplicationController
     @food = Food.new
   end
 
+  def shopping_list
+    @foods = Food.all
+  end
+
   # POST /foods or /foods.json
   def create
     @food = Food.new(food_params)
