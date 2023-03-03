@@ -1,6 +1,8 @@
+<%= render '/navbar' %>
+
 <div>
   <h2 align="center">Shopping List</h2>
-  <div>
+  <div class="shopping-values">
     <h4>Amount of food items to buy:<span><%= @shoppings.length%></span></h4>
     <h4>Total value of food needed:<span>$<%=@total_price%></span></h4>
   </div>
