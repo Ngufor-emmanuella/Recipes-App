@@ -6,16 +6,10 @@ class ApplicationController < ActionController::Base
 
   def update_allowed_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |u|
-      u.permit(:name, :email, :password, :password_confirmation)
+      u.permit(:name, :posts_counter, :email, :password, :password_confirmable)
     end
     devise_parameter_sanitizer.permit(:account_update) do |u|
-      u.permit(:name, :email, :password, :current_password, :password_confirmation)
+      u.permit(:name, :surname, :email, :password, :current_password)
     end
-  end
-
-  private
-
-  def after_sign_up_path_for(_resource_or_scope)
-    root
   end
 end
