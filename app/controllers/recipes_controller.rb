@@ -4,7 +4,6 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
-
   # GET /recipes/new
   def new
     @recipe = Recipe.new
