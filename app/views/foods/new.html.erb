@@ -1,6 +1,6 @@
-<h1>Add Foods Form</h1>
+<h2>Add Foods Form</h2>
 
-<%= form_with model: @food, url: user_foods_path(params[:user_id]), method: :post, class: "form" do |form| %>
+<%= form_with model: @food, url: user_foods_path(current_user), method: :post, class: "form" do |form| %>
   <h2 class="form_title">Add a Food</h2>
   <section class="form-section">
     <p class="input-text"><%= form.label :name %>:</p>

@@ -1,4 +1,4 @@
-<h1>Add Foods Form</h1>
+<h1>Recipes Form</h1>
 
 <%= form_with model: @recipe, url: user_recipes_path(params[:user_id]), method: :post, class: "form" do |form| %>
   <h2 class="form_title">Add a Recipe</h2>
@@ -16,7 +16,7 @@
     placeholder: "Write the preparation time..." %>
   </section>
 
-    <section class="form-section">
+  <section class="form-section">
     <p class="number_field"><%= form.label :cooking_time, "Cooking Time" %>:</p>
     <%= form.number_field :cooking_time,
     class: "number_field",
@@ -30,7 +30,7 @@
     placeholder: "Describe the recipe...", rows: "10" %>
   </section>
 
-    <section class="form-section">
+  <section class="form-section">
     <p class="check_box"><%= form.label :public %></p>
     <%= form.check_box :public %>
   </section>
