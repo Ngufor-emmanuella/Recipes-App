@@ -2,7 +2,7 @@
 
 <h2 align="center">This is the List of Foods Page</h2>
 
-<button><%= link_to "Add a new Food", new_user_food_path %></button>
+<%= button_to "Add a new Food", new_user_food_path(:user_id), method: :get%>
 <br>
 <br>
 <table class="table">

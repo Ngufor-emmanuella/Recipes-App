@@ -19,11 +19,11 @@ class FoodsController < ApplicationController
   # POST /foods or /foods.json
   def create
     @food = Food.new(food_params)
-    @food.user_id = current_user.id
+    @food.user = current_user
 
     if @food.save
       flash[:notice] = 'Food was successfully created'
-      redirect_to user_foods_path(current_user)
+      redirect_to user_foods_path(:user_id)
     else
       render :new
     end
