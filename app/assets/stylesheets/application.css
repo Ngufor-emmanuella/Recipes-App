@@ -13,3 +13,85 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  margin: 0;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+  text-align: center;
+}
+
+.card {
+  border: 1px solid;
+  width: 30rem;
+  margin: auto;
+}
+
+.card-head {
+  margin: 10px 10px 25px 15px;
+  text-align: center;
+  width: 200px;
+}
+
+.card-body {
+  display: flex;
+  align-items: flex-end;
+}
+
+.card-bodiem {
+  margin: auto;
+}
+
+.card-text {
+  margin: 10px;
+  padding: 20px;
+  text-align: justify;
+}
+
+header {
+  background-color: gray;
+  height: 50px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: -16px;
+  padding: 8px;
+}
+
+.nav-wrapper {
+  display: flex;
+  margin: 5px 20px;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  margin: 5px 20px;
+  color: black;
+  font-weight: bold;
+}
+
+body > button {
+  margin: auto;
+  display: flex;
+}
+
+table {
+  margin: auto;
+}
+
+.shopping-values {
+  display: flex;
+  justify-content: center;
+}
+
+.shopping-values > * {
+  margin: 20px 20px;
+}

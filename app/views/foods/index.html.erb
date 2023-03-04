@@ -1,28 +1,29 @@
-<h1>This is the List of Foods Page</h1>
+<%= render '/navbar' %>
 
-<button><%= link_to "Add a new Food", new_user_food_path %></button>
+<h2 align="center">This is the List of Foods Page</h2>
+
+<%= button_to "Add a new Food", new_user_food_path(:user_id), method: :get%>
 <br>
 <br>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Food Name</th>
-        <th scope="col">Measurement Unit</th>
-        <th scope="col">Unit Price</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <% @foods.each do |food| %>
-    <tbody>
-      <tr>
-        <th scope="row"><%= food.id %></th>
-        <td><%= food.name %></td>
-        <td><%= food.measurement_unit %></td>
-        <td><%= food.price %></td>
-        <td><%= button_to "Delete Food", user_food_path(params[:user_id], food), method: :delete %></td>
-      </tr>
-    </tbody>
-    <% end %>
-  </table>
-  
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Food Name</th>
+      <th scope="col">Measurement Unit</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <% @foods.each do |food| %>
+  <tbody>
+    <tr>
+      <th scope="row"><%= food.id %></th>
+      <td><%= food.name %></td>
+      <td><%= food.measurement_unit %></td>
+      <td><%= food.price %></td>
+      <td><%= button_to "Delete Food", user_food_path(params[:user_id], food), method: :delete %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
