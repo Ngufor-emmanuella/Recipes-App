@@ -1,30 +1,33 @@
-<%= render '/navbar' %>
+<section class="foods">
+  <h1>Foods</h1>
 
-<h2 align="center">This is the List of Foods Page</h2>
+  <div class="button-container">
+    <div class="add-food-button">
+      <%= link_to "Add food", new_user_food_path %>
+    </div>
+  </div>
 
-<%= button_to "Add a new Food", new_user_food_path(current_user), method: :get%>
-<br>
-<br>
-  <table class="table">
+  <table cellspacing="0">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Food Name</th>
-        <th scope="col">Measurement Unit</th>
-        <th scope="col">Unit Price</th>
-        <th scope="col">Actions</th>
+        <th>Name</th>
+        <th>Measurement unit</th>
+        <th>Unit price</th>
+        <th>Actions</th>
       </tr>
     </thead>
-    <% @foods.each do |food| %>
     <tbody>
-      <tr>
-        <th scope="row"><%= food.id %></th>
-        <td><%= food.name %></td>
-        <td><%= food.measurement_unit %></td>
-        <td><%= food.price %></td>
-        <td><%= button_to "Delete Food", user_food_path(current_user, food.id), method: :delete %></td>
-      </tr>
+      <% @foods.each do |food| %>
+        <tr>
+          <td><%= food.name %></td>
+          <td><%= food.measurement_unit %></td>
+          <td><%= food.price %>$</td>
+          <td>
+            <%= button_to "Destroy", user_food_path(current_user.id, food.id), method: :delete%>
+          </td>
+        </tr>
+      <% end %>
     </tbody>
-    <% end %>
   </table>
-  
+
+</section>

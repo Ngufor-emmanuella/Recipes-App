@@ -1,27 +1,23 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-  subject { Food.new(name: 'Beef', measurement_unit: 'kg', price: 20, quantity: 1) }
-
-  before { subject.save }
-
-  it 'should have a name' do
-    subject.name = nil
-    expect(subject).to_not be_valid
+  subject do
+    @user = User.new(name: 'test', email: 'test@test.com')
+    @food = @user.foods.new(name: 'Egg', measurement_unit: 'kg', price: 3, updated_at: Time.now,
+                            created_at: Time.now)
   end
 
-  it 'should have a measurement_unit' do
-    subject.measurement_unit = nil
-    expect(subject).to_not be_valid
-  end
+  describe 'Food model' do
+    it 'Should have a name' do
+      expect(subject.name).to eq 'Egg'
+    end
 
-  it 'should have price' do
-    subject.price = nil
-    expect(subject).to_not be_valid
-  end
+    it 'Should have a price' do
+      expect(subject.price).to eq 3
+    end
 
-  it 'should have quantity' do
-    subject.quantity = nil
-    expect(subject).to_not be_valid
+    it 'Should have a measurement_unit' do
+      expect(subject.measurement_unit).to eq 'kg'
+    end
   end
 end

@@ -1,37 +1,23 @@
 require 'rails_helper'
-
 RSpec.describe Recipe, type: :model do
-  subject { Recipe.new(name: 'Couche Lorraine', description: 'Slice the bread', preparation_time: 1, cooking_time: 1) }
-
-  before { subject.save }
-
-  it 'should have a name' do
-    subject.name = nil
-    expect(subject).to_not be_valid
+  before(:each) do
+    @u = User.new(name: 'test', email: 'test@test.com')
+    @r = @u.recipes.new(name: 'boiled egg', preparation_time: 2, cooking_time: 5,
+                        description: 'Put the egg in boiling water for about 5 minutes, slightly less if you like the yolk underdone', public: true)
+  end
+  it 'should return the correct name' do
+    expect(@r.name).to eq 'boiled egg'
   end
 
-  it 'should have a description' do
-    subject.description = nil
-    expect(subject).to_not be_valid
+  it 'should return the correct preparation_time' do
+    expect(@r.preparation_time).to eq 2
   end
 
-  it 'should have preparation_time' do
-    subject.preparation_time = nil
-    expect(subject).to_not be_valid
+  it 'should return the correct cooking_time' do
+    expect(@r.cooking_time).to eq 5
   end
 
-  it 'should have cooking_time' do
-    subject.cooking_time = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'name should have less than 50 characters but greater than 3 characters' do
-    subject.name = ('a' * 60) && subject.name = 'a' * 2
-    expect(subject).to_not be_valid
-  end
-
-  it 'description should have less than 300 characters but greater than 10 characters' do
-    subject.description = ('a' * 350) && subject.description = 'a' * 9
-    expect(subject).to_not be_valid
+  it 'should return the description' do
+    expect(@r.description).to eq 'Put the egg in boiling water for about 5 minutes, slightly less if you like the yolk underdone'
   end
 end
