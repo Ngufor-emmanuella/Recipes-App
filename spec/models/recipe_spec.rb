@@ -20,6 +20,6 @@ RSpec.describe Recipe, type: :model do
 
   it 'should return the description' do
     expect(@r.description).to eq 'Put the egg in boiling water for about 5 minutes,
-    slightly less if you like the yolk underdone'
+                        slightly less if you like the yolk underdone'
   end
 end
