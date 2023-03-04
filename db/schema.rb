@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_02_133543) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_04_022002) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,26 +25,26 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_133543) do
     t.index ["user_id"], name: "index_foods_on_user_id"
   end
 
+  create_table "recipe_foods", force: :cascade do |t|
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "foods_id"
+    t.bigint "recipe_id"
+    t.index ["foods_id"], name: "index_recipe_foods_on_foods_id"
+    t.index ["recipe_id"], name: "index_recipe_foods_on_recipe_id"
+  end
+
   create_table "recipes", force: :cascade do |t|
     t.string "name"
     t.integer "preparation_time"
-    t.integer "cookin_time"
+    t.integer "cooking_time"
     t.text "description"
     t.boolean "public"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["user_id"], name: "index_recipes_on_user_id"
-  end
-
-  create_table "recipes_foods", force: :cascade do |t|
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "foods_id"
-    t.bigint "recipe_id"
-    t.index ["foods_id"], name: "index_recipes_foods_on_foods_id"
-    t.index ["recipe_id"], name: "index_recipes_foods_on_recipe_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -61,7 +61,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_02_133543) do
   end
 
   add_foreign_key "foods", "users"
+  add_foreign_key "recipe_foods", "foods", column: "foods_id"
+  add_foreign_key "recipe_foods", "recipes"
   add_foreign_key "recipes", "users"
-  add_foreign_key "recipes_foods", "foods", column: "foods_id"
-  add_foreign_key "recipes_foods", "recipes"
 end
