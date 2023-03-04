@@ -4,24 +4,20 @@
 <button><%= link_to "Add a recipe", new_user_recipe_path %></button>
 <br>
 
-
 <% @recipes.each do |recipe| %>
   <div>
-
       <div class="card">
         <div class="card-body">
           <div class="card-head">
-
-                    <%= link_to user_recipe_path(recipe.user, recipe) do %>
-
+          <%= link_to user_recipe_path(recipe.user, recipe) do %>
             <h3 class="card-title"><%= recipe.name %></h3>
           <% end %>
             <%= button_to "REMOVE", user_recipe_path(params[:user_id], recipe), method: :delete %>
-                      </div>
+          </div>
           <div class="card-bodiem">
             <p class="card-text"><%= recipe.description %></p>
           </div>
         </div>
       </div>
-       </div>
+  </div>
 <% end %>

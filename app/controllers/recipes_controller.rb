@@ -1,15 +1,12 @@
 class RecipesController < ApplicationController
-  # GET /recipes or /recipes.json
   def index
     @recipes = Recipe.all
   end
 
-  # GET /recipes/new
   def new
     @recipe = Recipe.new
   end
 
-  # POST /recipes or /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user = current_user
